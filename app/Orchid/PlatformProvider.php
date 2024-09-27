@@ -34,11 +34,6 @@ class PlatformProvider extends OrchidServiceProvider
     public function menu(): array
     {
         return [
-            // Menu::make('Get Started')
-            //     ->icon('bs.book')
-            //     ->title('Navigation')
-            //     ->route(config('platform.index')),
-
             Menu::make('Sample Screen')
                 ->icon('bs.collection')
                 ->route('platform.example')
@@ -63,24 +58,11 @@ class PlatformProvider extends OrchidServiceProvider
 
 						Menu::make(__('Projects'))
                 ->icon('bs.briefcase')
-                ->route('platform.project')
-                ->permission('platform.systems.users'),
+                ->route('platform.project'),
 
             Menu::make('Cards')
                 ->icon('bs.card-text')
                 ->route('platform.example.cards')
-                ->divider(),
-
-            Menu::make(__('Users'))
-                ->icon('bs.people')
-                ->route('platform.systems.users')
-                ->permission('platform.systems.users')
-                ->title(__('Access Controls')),
-
-            Menu::make(__('Roles'))
-                ->icon('bs.shield')
-                ->route('platform.systems.roles')
-                ->permission('platform.systems.roles')
                 ->divider(),
 
             Menu::make('Documentation')
