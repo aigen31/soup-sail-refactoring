@@ -2,17 +2,17 @@
 
 namespace Database\Seeders\Control\Permissions\Models;
 
-use App\Traits\Control\PermissionsTrait;
+use App\Traits\Control\Permissions\CreatePermissionsTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PromocodePermissionSeeder extends Seeder
 {
-  use PermissionsTrait;
+  use CreatePermissionsTrait;
 
   public $permissions = [
-    'promocode_create',
-    'promocode_delete',
+    'promocode_create' => 'Promocode Create',
+    'promocode_delete' => 'Promocode Delete',
   ];
 
   /**

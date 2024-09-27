@@ -10,48 +10,52 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
-	/**
-	 * Display a listing of the resource.
-	 */
-	public function index()
-	{
-		//
-	}
+  /**
+   * Display a listing of the resource.
+   */
+  public function index()
+  {
+    //
+  }
 
-	/**
-	 * Create new Project
-	 *
-	 * @return array<string, mixed>
-	 */
-	public function store(Request $request)
-	{
-		return new ProjectResource(Project::create([
-			'name' => $request->input('project.name'),
-			'description' => $request->input('project.description'),
-		]));
-	}
+  /**
+   * Create new Project
+   *
+   * @return array<string, mixed>
+   */
+  public function store(Request $request)
+  {
+    $hasPermissions = $request->user()->hasPermissions(['project_create']);
 
-	/**
-	 * Display the specified resource.
-	 */
-	public function show(string $id)
-	{
-		return new ProjectResource(Project::findOrFail($id));
-	}
+    if ($hasPermissions) {
+      return new ProjectResource(Project::create([
+        'name' => $request->input('project_name'),
+        'description' => $request->input('project_description'),
+      ]));
+    }
+  }
 
-	/**
-	 * Update the specified resource in storage.
-	 */
-	public function update(Request $request, string $id)
-	{
-		//
-	}
+  /**
+   * Display the specified resource.
+   */
+  public function show(string $id)
+  {
+    return new ProjectResource(Project::findOrFail($id));
+  }
 
-	/**
-	 * Remove the specified resource from storage.
-	 */
-	public function destroy(string $id)
-	{
-		Project::destroy($id);
-	}
+  /**
+   * Update the specified resource in storage.
+   */
+  public function update(Request $request, string $id)
+  {
+    //
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   */
+  public function destroy(string $id)
+  {
+    Project::destroy($id);
+  }
 }

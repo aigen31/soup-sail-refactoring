@@ -2,20 +2,20 @@
 
 namespace Database\Seeders\Control\Permissions\Models;
 
-use App\Traits\Control\PermissionsTrait;
+use App\Traits\Control\Permissions\CreatePermissionsTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ChatPermissionSeeder extends Seeder
 {
-  use PermissionsTrait;
+  use CreatePermissionsTrait;
 
   public $permissions = [
-    'chat_create',
-    'chat_message',
-    'chat_attachment',
-    'chat_state',
-    'chat_work_result',
+    'chat_create' => 'Chat Create',
+    'chat_message' => 'Chat Message',
+    'chat_attachment' => 'Chat Attachment',
+    'chat_state' => 'Chat State',
+    'chat_work_result' => 'Chat Work Result',
   ];
 
   /**

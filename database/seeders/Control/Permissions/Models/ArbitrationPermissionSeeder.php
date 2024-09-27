@@ -2,19 +2,19 @@
 
 namespace Database\Seeders\Control\Permissions\Models;
 
-use App\Traits\Control\PermissionsTrait;
+use App\Traits\Control\Permissions\CreatePermissionsTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ArbitrationPermissionSeeder extends Seeder
 {
-  use PermissionsTrait;
+  use CreatePermissionsTrait;
 
   public $permissions = [
-    'arbitration_accept',
-    'arbitration_create',
-    'arbitartion_decision',
-    'arbitration_define_right',
+    'arbitration_accept' => 'Arbitration Accept',
+    'arbitration_create' => 'Arbitration Create',
+    'arbitartion_decision' => 'Arbitrarion Decision',
+    'arbitration_define_right' => 'Arbitration Define Right',
   ];
 
   /**

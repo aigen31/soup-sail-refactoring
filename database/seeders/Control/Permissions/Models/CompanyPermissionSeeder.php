@@ -2,19 +2,19 @@
 
 namespace Database\Seeders\Control\Permissions\Models;
 
-use App\Traits\Control\PermissionsTrait;
+use App\Traits\Control\Permissions\CreatePermissionsTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CompanyPermissionSeeder extends Seeder
 {
-  use PermissionsTrait;
+  use CreatePermissionsTrait;
 
   public $permissions = [
-    'company_control',
-    'company_validation_request',
-    'company_validation_state',
-    'company_send_conf_link',
+    'company_control' => 'Company Control',
+    'company_validation_request' => 'Company Salidation Request',
+    'company_validation_state' => 'Company Salidation State',
+    'company_send_conf_link' => 'Company Send Conf Link',
   ];
 
   /**

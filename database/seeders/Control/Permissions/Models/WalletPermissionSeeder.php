@@ -2,17 +2,17 @@
 
 namespace Database\Seeders\Control\Permissions\Models;
 
-use App\Traits\Control\PermissionsTrait;
+use App\Traits\Control\Permissions\CreatePermissionsTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class WalletPermissionSeeder extends Seeder
 {
-  use PermissionsTrait;
+  use CreatePermissionsTrait;
 
   public $permissions = [
-    'wallet_deposit',
-    'wallet_withdraw',
+    'wallet_deposit' => 'Wallet Deposit',
+    'wallet_withdraw' => 'Wallet Withdraw',
   ];
 
   /**

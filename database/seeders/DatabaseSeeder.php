@@ -12,6 +12,9 @@ use Database\Seeders\Control\Permissions\Models\SpecialistPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\SupportPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\TaskPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\WalletPermissionSeeder;
+use Database\Seeders\Control\Relationships\PermissionRoleSeeder;
+use Database\Seeders\Control\Roles\RoleSeeder;
+use Database\Seeders\Control\Users\UserSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,5 +37,11 @@ class DatabaseSeeder extends Seeder
    */
   public function run(): void {
     $this->call($this->permissions);
+
+    $this->call([
+      RoleSeeder::class,
+      UserSeeder::class,
+      PermissionRoleSeeder::class,
+    ]);
   }
 }

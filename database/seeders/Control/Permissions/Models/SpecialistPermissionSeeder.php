@@ -2,18 +2,18 @@
 
 namespace Database\Seeders\Control\Permissions\Models;
 
-use App\Traits\Control\PermissionsTrait;
+use App\Traits\Control\Permissions\CreatePermissionsTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SpecialistPermissionSeeder extends Seeder
 {
-  use PermissionsTrait;
+  use CreatePermissionsTrait;
 
   public $permissions = [
-    'specialist_validation_request',
-    'specialist_validation_state',
-    'specialist_send_conf_link',
+    'specialist_validation_request' => 'Specialist Validation Request',
+    'specialist_validation_state' => 'Specialist Validation State',
+    'specialist_send_conf_link' => 'Specialist Send Conf Link',
   ];
 
   /**

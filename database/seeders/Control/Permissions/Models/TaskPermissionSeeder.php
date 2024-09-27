@@ -2,28 +2,28 @@
 
 namespace Database\Seeders\Control\Permissions\Models;
 
-use App\Traits\Control\PermissionsTrait;
+use App\Traits\Control\Permissions\CreatePermissionsTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TaskPermissionSeeder extends Seeder
 {
-  use PermissionsTrait;
+  use CreatePermissionsTrait;
 
   public $permissions = [
-    'task_create',
-    'task_update',
-    'task_update_request',
-    'task_delete',
-    'task_specialist_request',
-    'task_specialist_kick',
-    'task_specialist_accept',
-    'task_buy_service_request',
-    'task_state_update',
-    'task_check_request',
-    'task_accept_result',
-    'task_reject_result',
-    'task_arbitration_request',
+    'task_create' => 'Task Create',
+    'task_update' => 'Task Update',
+    'task_update_request' => 'Task Update Request',
+    'task_delete' => 'Task Delete',
+    'task_specialist_request' => 'Task Specialist Request',
+    'task_specialist_kick' => 'Task Specialist Kick',
+    'task_specialist_accept' => 'Task Specialist Accept',
+    'task_buy_service_request' => 'Task Buy Service Request',
+    'task_state_update' => 'Task State Update',
+    'task_check_request' => 'Task Check Request',
+    'task_accept_result' => 'Task Accept Result',
+    'task_reject_result' => 'Task Reject Result',
+    'task_arbitration_request' => 'Task Arbitration Request',
   ];
 
   /**
