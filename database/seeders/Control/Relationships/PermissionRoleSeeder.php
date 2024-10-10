@@ -27,8 +27,11 @@ class PermissionRoleSeeder extends Seeder
       'chat_message',
       'chat_attachment',
       'yourself_access',
+      'platform.index',
     ],
     'moderator' => [
+      'project_target_create',
+      'project_target_update',
       'task_update_request',
       'task_specialist_request',
       'task_buy_service_request',
@@ -49,8 +52,11 @@ class PermissionRoleSeeder extends Seeder
       'users_view',
       'anybody_access',
       'specialist_state',
+      'platform.index',
     ],
     'admin' => [
+      'project_target_create',
+      'project_target_update',
       'task_create',
       'task_update',
       'task_specialist_request',
@@ -87,11 +93,11 @@ class PermissionRoleSeeder extends Seeder
       'users_view',
       'anybody_access',
       'specialist_state',
+      'platform.index',
     ],
     'super_admin' => [
-      'project_create',
-      'project_update',
-      'project_delete',
+      'project_target_create',
+      'project_target_update',
       'task_create',
       'task_update',
       'task_delete',
@@ -143,6 +149,7 @@ class PermissionRoleSeeder extends Seeder
       'yourself_access',
       'anybody_access',
       'specialist_state',
+      'platform.index',
     ],
     'specialist' => [
       'task_specialist_accept',
@@ -154,16 +161,19 @@ class PermissionRoleSeeder extends Seeder
       'chat_attachment',
       'chat_work_result',
       'specialist_validation_request',
+      'platform.index',
     ],
     'support' => [
       'support_accept_task',
       'support_accept_common',
+      'platform.index',
     ],
     'arbitration' => [
       'arbitration_accept',
       'arbitration_create',
       'arbitartion_decision',
       'arbitration_define_right',
+      'platform.index',
     ]
   ];
 

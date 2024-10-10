@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Control\Project;
 use App\Models\Control\Role;
 use App\Orchid\Presenters\UserPresenter;
 use App\Traits\Control\Permissions\HasPermissionsTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
@@ -115,5 +117,9 @@ class User extends Authenticatable
   public function role()
   {
     return $this->belongsTo(Role::class, 'role_id');
+  }
+
+  public function projects(): HasMany {
+    return $this->hasMany(Project::class);
   }
 }

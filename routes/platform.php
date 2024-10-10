@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Orchid\Screens\Control\Project\ProjectScreen;
+use App\Orchid\Screens\Control\Project\ProjectCurrentUserScreen;
+use App\Orchid\Screens\Control\Project\ProjectTargetUserScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
@@ -60,6 +61,7 @@ Route::screen('/examples/grid', ExampleGridScreen::class)->name('platform.exampl
 Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.example.charts');
 Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
 
-Route::screen('/project', ProjectScreen::class)->name('platform.project');
+Route::screen('/project/target', ProjectTargetUserScreen::class)->name('platform.project.target');
+Route::screen('/project/current', ProjectCurrentUserScreen::class)->name('platform.project.current');
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

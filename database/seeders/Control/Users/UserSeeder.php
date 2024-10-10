@@ -4,7 +4,6 @@ namespace Database\Seeders\Control\Users;
 
 use App\Http\Controllers\Control\Role\RoleController;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,8 +36,15 @@ class UserSeeder extends Seeder
     ]);
 
     User::firstOrCreate([
-      'name' => 'Business Owner',
+      'name' => 'Business Owner 1',
       'email' => 'business_owner@mie.ru',
+      'password' => Hash::make('password'),
+      'role_id' => RoleController::getBySlug('client', true),
+    ]);
+
+    User::firstOrCreate([
+      'name' => 'Business Owner 2',
+      'email' => 'business_owner2@mie.ru',
       'password' => Hash::make('password'),
       'role_id' => RoleController::getBySlug('client', true),
     ]);

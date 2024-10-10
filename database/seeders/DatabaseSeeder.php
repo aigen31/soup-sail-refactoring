@@ -6,6 +6,7 @@ use Database\Seeders\Control\Permissions\Models\ArbitrationPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\ChatPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\CompanyPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\ControlPermissionSeeder;
+use Database\Seeders\Control\Permissions\Models\OrchidPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\ProjectPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\PromocodePermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\SpecialistPermissionSeeder;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
     ChatPermissionSeeder::class,
     CompanyPermissionSeeder::class,
     ControlPermissionSeeder::class,
+    OrchidPermissionSeeder::class,
     ProjectPermissionSeeder::class,
     PromocodePermissionSeeder::class,
     SpecialistPermissionSeeder::class,
