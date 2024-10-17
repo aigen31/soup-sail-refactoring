@@ -2,9 +2,6 @@
 
 namespace App\Traits\Control\Permissions;
 
-use App\Exceptions\Control\Exceptions\ForbiddenException;
-use Illuminate\Support\Facades\Request;
-
 trait HasPermissionsTrait
 {
   public function hasAccess(string $permit, bool $cache = true): bool
@@ -36,12 +33,12 @@ trait HasPermissionsTrait
 
     return true;
   }
-  
+
   public function ensureAccess(string $permit) {
     if ($this->hasAccess($permit)) {
       return true;
     } else {
-      throw new ForbiddenException();
+      abort(403, 'User doesn\'t have access');
     }
   }
 }
