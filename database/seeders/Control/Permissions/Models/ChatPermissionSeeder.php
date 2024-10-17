@@ -10,7 +10,7 @@ class ChatPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'chat_create' => 'Chat Create',
     'chat_message' => 'Chat Message',
     'chat_attachment' => 'Chat Attachment',

@@ -10,7 +10,7 @@ class OrchidPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'platform.index' => 'Platform Index',
   ];
 

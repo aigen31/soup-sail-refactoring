@@ -10,7 +10,7 @@ class WalletPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'wallet_deposit' => 'Wallet Deposit',
     'wallet_withdraw' => 'Wallet Withdraw',
   ];

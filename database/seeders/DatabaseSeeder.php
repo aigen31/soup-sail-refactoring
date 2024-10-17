@@ -13,6 +13,8 @@ use Database\Seeders\Control\Permissions\Models\SpecialistPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\SupportPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\TaskPermissionSeeder;
 use Database\Seeders\Control\Permissions\Models\WalletPermissionSeeder;
+use Database\Seeders\Control\Projects\ProjectsSeeder;
+use Database\Seeders\Control\Projects\ProjectStatusSeeder;
 use Database\Seeders\Control\Relationships\PermissionRoleSeeder;
 use Database\Seeders\Control\Roles\RoleSeeder;
 use Database\Seeders\Control\Users\UserSeeder;
@@ -44,6 +46,8 @@ class DatabaseSeeder extends Seeder
       RoleSeeder::class,
       UserSeeder::class,
       PermissionRoleSeeder::class,
+      ProjectStatusSeeder::class,
+      ProjectsSeeder::class,
     ]);
   }
 }

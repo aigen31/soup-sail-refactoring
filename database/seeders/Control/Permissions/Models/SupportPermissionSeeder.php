@@ -10,7 +10,7 @@ class SupportPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'company_send_conf_link' => 'Company Send Conf Link',
     'support_request' => 'support Request',
     'support_accept_task' => 'support Accept Task',

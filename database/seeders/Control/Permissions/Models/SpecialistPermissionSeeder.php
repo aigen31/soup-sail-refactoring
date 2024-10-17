@@ -10,7 +10,7 @@ class SpecialistPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'specialist_validation_request' => 'Specialist Validation Request',
     'specialist_validation_state' => 'Specialist Validation State',
     'specialist_send_conf_link' => 'Specialist Send Conf Link',

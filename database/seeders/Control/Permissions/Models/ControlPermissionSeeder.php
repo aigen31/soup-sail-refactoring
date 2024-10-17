@@ -10,7 +10,7 @@ class ControlPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'moderator_create' => 'Moderator Create',
     'admin_create' => 'Admin Create',
     'specialist_create' => 'Specialist Create',

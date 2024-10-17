@@ -10,7 +10,7 @@ class ArbitrationPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'arbitration_accept' => 'Arbitration Accept',
     'arbitration_create' => 'Arbitration Create',
     'arbitartion_decision' => 'Arbitrarion Decision',

@@ -3,17 +3,14 @@
 namespace Database\Seeders\Control\Relationships;
 
 use App\Http\Controllers\Control\Role\RoleController;
-use App\Models\Control\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PermissionRoleSeeder extends Seeder
 {
-  public $relationships = [
+  protected $relationships = [
     'client' => [
       'project_create',
       'project_update',
-      'project_state_update',
       'task_create',
       'task_update',
       'task_accept_result',
@@ -32,6 +29,8 @@ class PermissionRoleSeeder extends Seeder
     'moderator' => [
       'project_target_create',
       'project_target_update',
+      'project_show_all',
+      'project_state_update',
       'task_update_request',
       'task_specialist_request',
       'task_buy_service_request',
@@ -57,6 +56,8 @@ class PermissionRoleSeeder extends Seeder
     'admin' => [
       'project_target_create',
       'project_target_update',
+      'project_show_all',
+      'project_state_update',
       'task_create',
       'task_update',
       'task_specialist_request',
@@ -98,6 +99,9 @@ class PermissionRoleSeeder extends Seeder
     'super_admin' => [
       'project_target_create',
       'project_target_update',
+      'project_show_all',
+      'project_state_update',
+      'project_delete',
       'task_create',
       'task_update',
       'task_delete',
@@ -164,6 +168,8 @@ class PermissionRoleSeeder extends Seeder
       'platform.index',
     ],
     'support' => [
+      'project_target_create',
+      'project_target_update',
       'support_accept_task',
       'support_accept_common',
       'platform.index',

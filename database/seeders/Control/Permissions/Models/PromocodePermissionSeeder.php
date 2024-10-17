@@ -10,7 +10,7 @@ class PromocodePermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'promocode_create' => 'Promocode Create',
     'promocode_delete' => 'Promocode Delete',
   ];

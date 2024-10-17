@@ -10,7 +10,7 @@ class TaskPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'task_create' => 'Task Create',
     'task_update' => 'Task Update',
     'task_update_request' => 'Task Update Request',

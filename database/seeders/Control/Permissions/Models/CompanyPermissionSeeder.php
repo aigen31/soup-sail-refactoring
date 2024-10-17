@@ -10,7 +10,7 @@ class CompanyPermissionSeeder extends Seeder
 {
   use CreatePermissionsTrait;
 
-  public $permissions = [
+  protected $permissions = [
     'company_control' => 'Company Control',
     'company_validation_request' => 'Company Salidation Request',
     'company_validation_state' => 'Company Salidation State',
