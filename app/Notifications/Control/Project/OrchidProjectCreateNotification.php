@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Notifications\Control;
+namespace App\Notifications\Control\Project;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notification;
 use Orchid\Platform\Notifications\DashboardChannel;
 use Orchid\Platform\Notifications\DashboardMessage;
 
-class ProjectCreateNotification extends Notification
+class OrchidProjectCreateNotification extends Notification
 {
   use Queueable;
 

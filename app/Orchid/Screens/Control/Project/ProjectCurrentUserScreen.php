@@ -2,7 +2,6 @@
 
 namespace App\Orchid\Screens\Control\Project;
 
-use App\Exceptions\Control\Exceptions\ForbiddenException;
 use App\Http\Controllers\Control\Project\ProjectController;
 use App\Models\Control\Project;
 use Illuminate\Http\Request;
@@ -14,6 +13,7 @@ use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class ProjectCurrentUserScreen extends Screen
 {
@@ -115,8 +115,8 @@ class ProjectCurrentUserScreen extends Screen
   {
     try {
       $projectController = new ProjectController;
-      $projectController->store($request);
-    } catch (ForbiddenException $exception) {
+      $projectController->storeCurrent($request);
+    } catch (HttpException $exception) {
       Alert::error($exception->getMessage());
     }
   }

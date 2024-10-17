@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Control\Project;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Control\Project\ProjectResource;
 use App\Http\Resources\Control\Project\ProjectResourceCollection;
 use App\Models\Control\Project;
+use App\Models\User;
 use App\Traits\Control\Project\ProjectTrait;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class ProjectTargetController extends Controller
 {
   use ProjectTrait;
 
@@ -20,36 +20,29 @@ class ProjectController extends Controller
    */
   public function index()
   {
-    return new ProjectResourceCollection($this->user->projects->all());
+    $this->user->ensureAccess('project_show_all');
+
+    return new ProjectResourceCollection(Project::all());
   }
 
   /**
-   * Create new Project for current user
+   * Create new Project for target user
    *
    * @return App\Http\Resources\Control\Project\ProjectResource
    */
   public function store(Request $request)
   {
+    $this->userIdValidate($request);
     $this->fieldsValidate($request);
-    $this->user->ensureAccess('project_create');
+    $user = User::findOrFail($this->data['user_id']);
+    $this->user->ensureAccess('project_target_create');
+    $user->ensureAccess('project_create');
 
-    return $this->create($this->user, $request, false);
+    return $this->create($user, $request, true);
   }
 
   /**
-   * Display the specified resource.
-   *
-   * @return App\Http\Resources\Control\Project\ProjectResource
-   */
-  public function show(string $id)
-  {
-    $hasAnyAccess = $this->user->hasAnyAccess(['project_show_all']);
-
-    return $hasAnyAccess ? new ProjectResource(Project::findOrFail($id)) : new ProjectResource($this->user->projects()->findOrFail($id));
-  }
-
-  /**
-   * Update the specified resource in storage.
+   * Update the project model.
    *
    * @return \Illuminate\Http\JsonResponse
    */
@@ -59,26 +52,39 @@ class ProjectController extends Controller
       'project_name' => 'string|min:5|max:50|nullable',
       'project_description' => 'string|min:5|max:100|nullable',
     ]);
-    
-    $this->user->ensureAccess('project_update');
-    $project = $this->user->projects()->findOrFail($projectId);
+
+    $this->user->ensureAccess('project_target_update');
+
+    $project = Project::findOrFail($projectId);
+
     $project->validateStatus();
+
     $project->update($this->data);
-    
+
     return response()->json([
       'result' => 'success'
     ], 200);
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Update the status id of project.
    *
    * @return \Illuminate\Http\JsonResponse
    */
-  public function destroy(string $id)
+  public function setStatus(Request $request, string $projectId)
   {
-    $this->user->ensureAccess('project_delete');
+    $request->validate([
+      'status_id' => 'required|integer|min:1|max:2'
+    ]);
 
-    Project::destroy($id);
+    $this->user->ensureAccess('project_state_update');
+
+    Project::findOrFail($projectId)->update([
+      'status_id' => $request->input('status_id'),
+    ]);
+
+    return response()->json([
+      'result' => 'success'
+    ], 200);
   }
 }

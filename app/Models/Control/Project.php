@@ -5,7 +5,7 @@ namespace App\Models\Control;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use LogicException;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Screen\AsSource;
@@ -19,7 +19,7 @@ class Project extends Model
    *
    * @var array
    */
-  protected $fillable = ['name', 'description', 'user_id'];
+  protected $fillable = ['name', 'description', 'user_id', 'status_id'];
 
   protected $allowedSorts = ['id', 'name', 'created_at', 'updated_at'];
 
@@ -27,7 +27,20 @@ class Project extends Model
     'name' => Like::class,
   ];
 
-  public function user(): BelongsTo {
+  public function user()
+  {
     return $this->belongsTo(User::class);
+  }
+
+  public function status()
+  {
+    return $this->hasMany(ProjectStatus::class);
+  }
+
+  public function validateStatus()
+  {
+    if ($this->status_id == 2) {
+      throw new LogicException('This project is inactive');
+    }
   }
 }
