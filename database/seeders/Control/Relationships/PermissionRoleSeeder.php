@@ -27,9 +27,7 @@ class PermissionRoleSeeder extends Seeder
       'platform.index',
     ],
     'moderator' => [
-      'project_target_create',
-      'project_target_update',
-      'project_show_all',
+			'project_delegated_update',
       'project_state_update',
       'task_update_request',
       'task_specialist_request',

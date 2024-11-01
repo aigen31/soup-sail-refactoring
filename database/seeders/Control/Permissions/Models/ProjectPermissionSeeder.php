@@ -18,6 +18,7 @@ class ProjectPermissionSeeder extends Seeder
     'project_state_update' => 'Project State Update',
     'project_target_create' => 'Project Target Create',
     'project_target_update' => 'Project Target Update',
+    'project_delegated_update' => 'Delegated Project Update',
     'project_show_all' => 'Show All Projects',
   ];
 
