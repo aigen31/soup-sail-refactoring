@@ -18,70 +18,84 @@ class UserSeeder extends Seeder
       'name' => 'Admin',
       'email' => 'admin@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('admin', true),
+      'role_id' => RoleController::getBySlug('admin'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Super Admin',
       'email' => 'super_admin@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('super_admin', true),
+      'role_id' => RoleController::getBySlug('super_admin'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Moderator',
-      'email' => 'moderator@mie.ru',
+      'email' => 'moderator_1@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('moderator', true),
+      'role_id' => RoleController::getBySlug('moderator'),
+    ]);
+
+    User::firstOrCreate([
+      'name' => 'Moderator',
+      'email' => 'moderator_2@mie.ru',
+      'password' => Hash::make('password'),
+      'role_id' => RoleController::getBySlug('moderator'),
+    ]);
+
+    User::firstOrCreate([
+      'name' => 'Moderator',
+      'email' => 'moderator_3@mie.ru',
+      'password' => Hash::make('password'),
+      'role_id' => RoleController::getBySlug('moderator'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Business Owner 1',
       'email' => 'business_owner@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('client', true),
+      'role_id' => RoleController::getBySlug('client'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Business Owner 2',
       'email' => 'business_owner2@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('client', true),
+      'role_id' => RoleController::getBySlug('client'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Specialist Freelance',
       'email' => 'specialist_freelance@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('specialist', true),
+      'role_id' => RoleController::getBySlug('specialist'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Specialist Full-Time',
       'email' => 'specialist_fulltime@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('specialist', true),
+      'role_id' => RoleController::getBySlug('specialist'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Specialist Busy',
       'email' => 'specialist_busy@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('specialist', true),
+      'role_id' => RoleController::getBySlug('specialist'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Arbitration',
       'email' => 'arbitration@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('arbitration', true),
+      'role_id' => RoleController::getBySlug('arbitration'),
     ]);
 
     User::firstOrCreate([
       'name' => 'Support',
       'email' => 'support@mie.ru',
       'password' => Hash::make('password'),
-      'role_id' => RoleController::getBySlug('support', true),
+      'role_id' => RoleController::getBySlug('support'),
     ]);
   }
 }
