@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Control\Project\ProjectResourceCollection;
 use App\Models\Control\Project;
 use App\Models\User;
+use App\Traits\Control\Project\CanCreateProjectTrait;
 use App\Traits\Control\Project\ProjectTrait;
 use Illuminate\Http\Request;
 
 class ProjectTargetController extends Controller
 {
-  use ProjectTrait;
+  use CanCreateProjectTrait;
 
   /**
    * Display a listing of the projects.
@@ -48,10 +49,7 @@ class ProjectTargetController extends Controller
    */
   public function update(Request $request, string $projectId)
   {
-    $request->validate([
-      'project_name' => 'string|min:5|max:50|nullable',
-      'project_description' => 'string|min:5|max:100|nullable',
-    ]);
+    $this->updateValidate($request);
 
     $this->user->ensureAccess('project_target_update');
 
