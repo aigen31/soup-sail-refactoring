@@ -19,7 +19,7 @@ class Project extends Model
    *
    * @var array
    */
-  protected $fillable = ['name', 'description', 'user_id', 'status_id'];
+  protected $fillable = ['name', 'description', 'user_id', 'status_id', 'assistant_id'];
 
   protected $allowedSorts = ['id', 'name', 'created_at', 'updated_at'];
 
@@ -42,5 +42,10 @@ class Project extends Model
     if ($this->status_id == 2) {
       throw new LogicException('This project is inactive');
     }
+  }
+
+  public function assistants()
+  {
+    return $this->belongsToMany(User::class, 'project_assistant', 'project_id', 'assistant_id');
   }
 }

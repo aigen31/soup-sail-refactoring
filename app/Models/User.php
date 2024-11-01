@@ -39,6 +39,7 @@ class User extends Authenticatable
     'name',
     'email',
     'password',
+    'assistant_id',
     // 'permissions',
   ];
 
@@ -119,7 +120,11 @@ class User extends Authenticatable
     return $this->belongsTo(Role::class, 'role_id');
   }
 
-  public function projects(): HasMany {
+  public function projects() {
     return $this->hasMany(Project::class);
+  }
+
+  public function assistantProject() {
+    return $this->belongsToMany(Project::class, 'project_assistant', 'assistant_id', 'project_id');
   }
 }
