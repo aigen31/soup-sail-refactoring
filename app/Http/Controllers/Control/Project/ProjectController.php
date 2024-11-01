@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Control\Project;
 
+use App\Http\Controllers\Control\Role\RoleController;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Control\Project\ProjectResource;
 use App\Http\Resources\Control\Project\ProjectResourceCollection;
 use App\Models\Control\Project;
+use App\Models\User;
+use App\Traits\Control\Project\CanCreateProjectTrait;
 use App\Traits\Control\Project\ProjectTrait;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-  use ProjectTrait;
+  use CanCreateProjectTrait;
 
   /**
    * Display a listing of the projects.
@@ -55,16 +58,13 @@ class ProjectController extends Controller
    */
   public function update(Request $request, string $projectId)
   {
-    $request->validate([
-      'project_name' => 'string|min:5|max:50|nullable',
-      'project_description' => 'string|min:5|max:100|nullable',
-    ]);
-    
+    $this->updateValidate($request);
+
     $this->user->ensureAccess('project_update');
     $project = $this->user->projects()->findOrFail($projectId);
     $project->validateStatus();
     $project->update($this->data);
-    
+
     return response()->json([
       'result' => 'success'
     ], 200);
