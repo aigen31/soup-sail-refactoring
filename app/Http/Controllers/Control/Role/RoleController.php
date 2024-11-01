@@ -15,7 +15,7 @@ class RoleController extends Controller
    * @param string $roleName
    * @return int|Collection
    */
-  public static function getBySlug(string $roleSlug, bool $onlyId)
+  public static function getBySlug(string $roleSlug, bool $onlyId = true)
   {
     $role = Role::where('slug', $roleSlug)->first();
 
